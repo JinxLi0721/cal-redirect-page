@@ -1,6 +1,6 @@
 <template>
   <main class="min-h-screen flex items-center justify-center bg-background p-4">
-    <div v-if="bookingId" class="text-center max-w-md p-6 bg-white rounded-2xl shadow-lg">
+    <div v-if="!valid" class="text-center max-w-md p-6 bg-white rounded-2xl shadow-lg">
       <h1 class="text-2xl font-bold text-text mb-4">歡迎體驗放鬆之旅</h1>
       <p class="text-text mb-6">
         請先透過 Cal.com 預約您的按摩、放鬆或助眠服務，完成後將自動跳轉至此查看詳情。
@@ -16,7 +16,7 @@
       <!-- 標題 -->
 
       <div class="text-center">
-        <h1 class="text-2xl font-bold text-text">{{ title }} 預約確認</h1>
+        <h1 class="text-2xl font-bold text-text">已提出預約</h1>
         <p class="text-sm text-gray-500 mt-1">已寄預約通知至 {{ email }}</p>
       </div>
 
@@ -47,21 +47,22 @@
       <div class="space-y-3">
         <h2 class="text-lg font-semibold text-primary">費用支付</h2>
         <p class="text-sm text-text">
-          請先完成服務費用（NT$ 1,000）支付，使用 Line Pay 掃描 QR code 即可。
+          請先完成場地費（NT$ 1,000）支付，使用 Line Pay，或中國信託轉帳，掃描下方 QR code 。
         </p>
         <div class="flex justify-center">
           <img alt="Line Pay QR Code" class="w-32 h-32 border rounded-lg shadow-md" />
         </div>
         <p class="text-xs text-gray-500 text-center">
-          掃描上方 QR code 支付 NT$ 1,000（備註: 預約名稱 {{ attendeeName }}）
+          掃描上方 QR code 支付 NT$ 1,000（請備註預約名稱： {{ attendeeName }}）
+        </p>
+        <p class="text-xs text-gray-500 text-center">
+          提醒：在確認款項後，收到活動已預定時間的mail，才算完成預約
         </p>
       </div>
 
       <!-- 底部連結 -->
       <div class="text-center pt-4 border-t">
-        <p class="text-sm font-medium text-indigo-400 mt-1">
-          離開此頁面後將無法顯示，請截圖保存以利提醒
-        </p>
+        <p class="text-sm font-medium text-indigo-400 mt-1">請截圖保存到場須知以利提醒</p>
         <a
           :href="`mailto:your-email@example.com?subject=預約確認 - ${bookingId}`"
           class="text-primary hover:underline text-sm"
@@ -80,6 +81,7 @@ import moment from 'moment'
 
 const route = useRoute()
 const defaultStr = '未顯示'
+const valid = ref(false)
 const bookingId = ref(null)
 const title = ref('寧靜碰觸')
 const startTime = ref(defaultStr)
@@ -91,11 +93,22 @@ const attendeeName = ref(defaultStr)
 onMounted(() => {
   bookingId.value = route.query.uid || null
   title.value = route.query.title || defaultStr
-  startTime.value = moment(route.query.startTime).format('YYYY-MM-DD HH:mm') || defaultStr
-  endTime.value = moment(route.query.endTime).format('YYYY-MM-DD HH:mm') || defaultStr
+  startTime.value = moment(route.query.startTime).local().format('YYYY-MM-DD HH:mm') || defaultStr
+  endTime.value = moment(route.query.endTime).local().format('YYYY-MM-DD HH:mm') || defaultStr
   email.value = route.query.email || defaultStr
   hostName.value = route.query.hostName || defaultStr
   attendeeName.value = route.query.attendeeName || defaultStr
   console.log(route.query)
+  valid.value = validParam(bookingId.value, endTime.value)
+  console.log(valid.value)
 })
+
+function validParam(uid, endTime) {
+  if (uid && endTime) {
+    if (uid.length == 22 && moment(endTime).local().isAfter(moment())) {
+      return true
+    }
+  }
+  return false
+}
 </script>
