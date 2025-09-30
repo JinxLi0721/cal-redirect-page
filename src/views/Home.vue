@@ -16,58 +16,125 @@
       <!-- 標題 -->
 
       <div class="text-center">
-        <h1 class="text-2xl font-bold text-text">已提出預約</h1>
-        <p class="text-sm text-gray-500 mt-1">已寄預約通知至 {{ email }}</p>
+        <h1 class="text-2xl font-bold text-text">感謝您的預約</h1>
+        <p class="text-sm text-gray-500 mt-1">已將預訂資訊寄至 {{ email }}</p>
       </div>
 
+      <p class="text-center pt-4 border-t border-gray-100"></p>
       <!-- 注意事項 -->
       <div class="space-y-3">
         <h2 class="text-lg font-semibold text-primary">到場須知</h2>
-        <ul class="space-y-2 text-sm text-text">
-          <li class="flex items-start">
-            <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-2 flex-shrink-0"></span>
-            請於預約時間前 15 分鐘抵達，與櫃台領取房間鑰匙（電話: 02-1234-5678）。
-          </li>
-          <li class="flex items-start">
-            <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-2 flex-shrink-0"></span>
-            請穿著舒適衣物，場內提供免費精油與助眠音樂。
-          </li>
-          <li class="flex items-start">
-            <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-2 flex-shrink-0"></span>
-            場內禁止飲食，請保持環境整潔。
-          </li>
-          <li class="flex items-start">
-            <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-2 flex-shrink-0"></span>
-            服務結束後，請將鑰匙歸還櫃台。
-          </li>
-        </ul>
+        <div class="space-y-2 rounded-lg border border-gray-200 p-3">
+          <div class="flex items-start gap-2 text-sm">
+            <div
+              class="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5"
+            >
+              1
+            </div>
+            地址：<a
+              class="text-decoration-none"
+              href="https://maps.app.goo.gl/eCE2gzgew7iPGwuN7"
+              target="_blank"
+              >忠孝東路三段54號4樓</a
+            >，伯朗咖啡館旁
+          </div>
+
+          <div class="flex items-start gap-2">
+            <div
+              class="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5"
+            >
+              2
+            </div>
+            <p class="text-sm">
+              請向一樓管理員說「四樓瑜伽教室」，拿磁扣刷電梯。出電梯後左轉即可看到教室大門
+            </p>
+          </div>
+
+          <div class="flex items-start gap-2">
+            <div
+              class="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5"
+            >
+              3
+            </div>
+            <p class="text-sm">請不要按門鈴，避免影響其他房間的課程</p>
+          </div>
+
+          <div class="flex items-start gap-2">
+            <div
+              class="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5"
+            >
+              4
+            </div>
+            <p class="text-sm">到了ＩＧ私訊 lull.flow，會來協助您開門</p>
+          </div>
+        </div>
       </div>
 
+      <p class="text-center pt-4 border-t border-gray-100"></p>
       <!-- 支付資訊 -->
       <div class="space-y-3">
-        <h2 class="text-lg font-semibold text-primary">費用支付</h2>
-        <p class="text-sm text-text">
-          請先完成場地費（NT$ 1,000）支付，使用 Line Pay，或中國信託轉帳，掃描下方 QR code 。
-        </p>
-        <div class="flex justify-center">
-          <img alt="Line Pay QR Code" class="w-32 h-32 border rounded-lg shadow-md" />
+        <h2 class="text-lg font-semibold text-primary">付款資訊</h2>
+        <div class="rounded-lg border border-orange-300 p-3 bg-orange-50">
+          <p class="text-sm/7 font-medium text-orange-900 mb-2">請先完成場地費用支付</p>
+          <p class="text-sm/7 text-orange-800">
+            場地費用： <span class="font-bold text-lg">500</span>
+          </p>
         </div>
-        <p class="text-xs text-gray-500 text-center">
-          掃描上方 QR code 支付 NT$ 1,000（請備註預約名稱： {{ attendeeName }}）
-        </p>
-        <p class="text-xs text-gray-500 text-center">
-          提醒：在確認款項後，收到活動已預定時間的mail，才算完成預約
-        </p>
+        <div class="grid gap-6">
+          <div class="space-y-3">
+            <h3 class="font-semibold">銀行轉帳資訊</h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between p-2 rounded">
+                <span class="text-muted-foreground">銀行名稱</span>
+                <span class="font-medium">中國信託(822)</span>
+              </div>
+              <div class="flex justify-between p-2 rounded">
+                <span class="text-muted-foreground">帳號</span>
+                <span class="font-medium font-mono">462890025765</span>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <h3 class="font-semibold">掃描 QR Code 付款</h3>
+            <div class="flex flex-col items-center space-y-2">
+              <img
+                src="../../public/bank-qrcode.png"
+                alt="bank QR code"
+                class="w-32 h-32 border rounded-lg shadow-md"
+              />
+              <p class="text-xs text-muted-foreground text-center">使用網路銀行 APP 掃描付款</p>
+            </div>
+            <div class="flex flex-col items-center space-y-2">
+              <img
+                src="../../public/ipassMoney.png"
+                alt="bank QR code"
+                class="w-32 h-32 border rounded-lg shadow-md"
+              />
+              <p class="text-xs text-muted-foreground text-center">使用ipass Money 掃描付款</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-lg border border-gray-200 px-4 py-3 text-sm items-start">
+          <p class="mb-1">付款提醒：</p>
+
+          <ul
+            class="font-thin text-xs text-gray-500 list-disc list-inside space-y-1 text-muted-foreground ml-4"
+          >
+            <li>轉帳請備註預約名稱： {{ attendeeName }}</li>
+            <li>完成付款確認後，會再發送 Email-已預定時間，才算完成預約</li>
+            <li>如有任何問題，請聯繫客服：service@example.com</li>
+          </ul>
+        </div>
       </div>
 
       <!-- 底部連結 -->
-      <div class="text-center pt-4 border-t">
+      <div class="text-center pt-4 border-t border-gray-200">
         <p class="text-sm font-medium text-indigo-400 mt-1">請截圖保存到場須知以利提醒</p>
         <a
           :href="`mailto:your-email@example.com?subject=預約確認 - ${bookingId}`"
           class="text-primary hover:underline text-sm"
         >
-          如有問題，請聯繫我們
+          期待與你見面
         </a>
       </div>
     </div>
