@@ -1,5 +1,5 @@
 <template>
-  <main class="min-h-screen flex items-center justify-center bg-background p-4">
+  <main class="flex items-center justify-center bg-background p-4">
     <div v-if="!valid" class="text-center max-w-md p-6 bg-white rounded-2xl shadow-lg">
       <h1 class="text-2xl font-bold text-text mb-4">歡迎體驗放鬆之旅</h1>
       <p class="text-text mb-6">
@@ -12,7 +12,7 @@
       </a>
     </div>
 
-    <div v-else class="max-w-md w-full bg-white rounded-2xl shadow-lg p-6 space-y-6">
+    <div v-else class="bg-white rounded-2xl shadow-lg p-6 space-y-6">
       <!-- 標題 -->
 
       <div class="text-center">
@@ -20,28 +20,48 @@
         <p class="text-sm text-gray-500 mt-1">已將預訂資訊寄至 {{ email }}</p>
       </div>
 
-      <p class="text-center pt-4 border-t border-gray-100"></p>
+      <p class="border-t border-gray-100"></p>
       <!-- 注意事項 -->
       <div class="space-y-3">
-        <h2 class="text-lg font-semibold text-primary">到場須知</h2>
+        <div class="flex gap-1 items-center text-primary">
+          <svg
+            className="w-6 h-6 text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5 9a7 7 0 1 1 8 6.93V21a1 1 0 1 1-2 0v-5.07A7.001 7.001 0 0 1 5 9Zm5.94-1.06A1.5 1.5 0 0 1 12 7.5a1 1 0 1 0 0-2A3.5 3.5 0 0 0 8.5 9a1 1 0 0 0 2 0c0-.398.158-.78.44-1.06Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          <h2 class="text-lg font-semibold">到場須知</h2>
+        </div>
         <div class="space-y-2 rounded-lg border border-gray-200 p-3">
-          <div class="flex items-start gap-2 text-sm">
+          <div class="flex items-center gap-2">
             <div
-              class="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5"
+              class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5"
             >
               1
             </div>
-            地址：<a
-              class="text-decoration-none"
-              href="https://maps.app.goo.gl/eCE2gzgew7iPGwuN7"
-              target="_blank"
-              >忠孝東路三段54號4樓</a
-            >，伯朗咖啡館旁
+            <p class="text-sm">
+              地址：<a
+                class="underline decoration-dotted"
+                href="https://maps.app.goo.gl/eCE2gzgew7iPGwuN7"
+                target="_blank"
+                >忠孝東路三段54號4樓</a
+              >，伯朗咖啡館旁
+            </p>
           </div>
 
-          <div class="flex items-start gap-2">
+          <div class="flex items-center gap-2">
             <div
-              class="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5"
+              class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5"
             >
               2
             </div>
@@ -50,18 +70,18 @@
             </p>
           </div>
 
-          <div class="flex items-start gap-2">
+          <div class="flex items-center gap-2">
             <div
-              class="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5"
+              class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5"
             >
               3
             </div>
             <p class="text-sm">請不要按門鈴，避免影響其他房間的課程</p>
           </div>
 
-          <div class="flex items-start gap-2">
+          <div class="flex items-center gap-2">
             <div
-              class="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5"
+              class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm font-semibold flex-shrink-0 mt-0.5"
             >
               4
             </div>
@@ -73,69 +93,102 @@
       <p class="text-center pt-4 border-t border-gray-100"></p>
       <!-- 支付資訊 -->
       <div class="space-y-3">
-        <h2 class="text-lg font-semibold text-primary">付款資訊</h2>
+        <div class="flex gap-1 items-center text-primary">
+          <svg
+            className="w-6 h-6 text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4 5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H4Zm0 6h16v6H4v-6Z"
+              clip-rule="evenodd"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M5 14a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Zm5 0a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2h-5a1 1 0 0 1-1-1Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          <h2 class="text-lg font-semibold text-primary">付款資訊</h2>
+        </div>
         <div class="rounded-lg border border-orange-300 p-3 bg-orange-50">
           <p class="text-sm/7 font-medium text-orange-900 mb-2">請先完成場地費用支付</p>
           <p class="text-sm/7 text-orange-800">
             場地費用： <span class="font-bold text-lg">500</span>
           </p>
         </div>
-        <div class="grid gap-6">
+        <div class="grid gap-6 sm:grid-cols-2">
           <div class="space-y-3">
             <h3 class="font-semibold">銀行轉帳資訊</h3>
-            <div class="space-y-2 text-sm">
-              <div class="flex justify-between p-2 rounded">
+            <div class="space-y-2 text-sm mg:w-100">
+              <div class="flex justify-between p-2 rounded bg-gray-100">
                 <span class="text-muted-foreground">銀行名稱</span>
-                <span class="font-medium">中國信託(822)</span>
+                <span class="font-medium">台新銀行(812)|敦南分行(0023)</span>
               </div>
-              <div class="flex justify-between p-2 rounded">
+              <div class="flex justify-between p-2 rounded bg-gray-100">
                 <span class="text-muted-foreground">帳號</span>
-                <span class="font-medium font-mono">462890025765</span>
+                <span class="font-medium font-mono">28881004182733</span>
               </div>
             </div>
           </div>
           <div class="space-y-3">
-            <h3 class="font-semibold">掃描 QR Code 付款</h3>
-            <div class="flex flex-col items-center space-y-2">
-              <img
-                src="../../public/bank-qrcode.png"
-                alt="bank QR code"
-                class="w-32 h-32 border rounded-lg shadow-md"
-              />
-              <p class="text-xs text-muted-foreground text-center">使用網路銀行 APP 掃描付款</p>
-            </div>
-            <div class="flex flex-col items-center space-y-2">
-              <img
-                src="../../public/ipassMoney.png"
-                alt="bank QR code"
-                class="w-32 h-32 border rounded-lg shadow-md"
-              />
-              <p class="text-xs text-muted-foreground text-center">使用ipass Money 掃描付款</p>
+            <h3 class="font-semibold">或掃描 QR Code 付款</h3>
+            <div class="img-container flex justify-around max-[25rem]:flex-col">
+              <div class="items-center space-y-2 justify-items-center mb-3">
+                <img
+                  src="/bank-qrcode.jpg"
+                  alt="bank QR code"
+                  class="w-32 h-32 border rounded-lg shadow-md"
+                />
+                <p class="text-xs text-muted-foreground text-center">使用網路銀行 APP 掃描</p>
+              </div>
+              <div class="items-center space-y-2 justify-items-center">
+                <img
+                  src="/ipassMoney.png"
+                  alt="bank QR code"
+                  class="w-32 h-32 border rounded-lg shadow-md"
+                />
+                <p class="text-xs text-muted-foreground text-center">使用 iPASS Money 掃描</p>
+              </div>
             </div>
           </div>
         </div>
         <div class="rounded-lg border border-gray-200 px-4 py-3 text-sm items-start">
-          <p class="mb-1">付款提醒：</p>
-
+          <div class="flex gap-1 items-center">
+            <svg aria-hidden="true" width="20" height="20" fill="yellow" viewBox="0 0 24 24">
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9 9a3 3 0 0 1 3-3m-2 15h4m0-3c0-4.1 4-4.9 4-9A6 6 0 1 0 6 9c0 4 4 5 4 9h4Z"
+              />
+            </svg>
+            <p class="mb-1">付款提醒：</p>
+          </div>
           <ul
             class="font-thin text-xs text-gray-500 list-disc list-inside space-y-1 text-muted-foreground ml-4"
           >
             <li>轉帳請備註預約名稱： {{ attendeeName }}</li>
             <li>完成付款確認後，會再發送 Email-已預定時間，才算完成預約</li>
-            <li>如有任何問題，請聯繫客服：service@example.com</li>
           </ul>
         </div>
       </div>
 
       <!-- 底部連結 -->
       <div class="text-center pt-4 border-t border-gray-200">
-        <p class="text-sm font-medium text-indigo-400 mt-1">請截圖保存到場須知以利提醒</p>
-        <a
-          :href="`mailto:your-email@example.com?subject=預約確認 - ${bookingId}`"
-          class="text-primary hover:underline text-sm"
-        >
-          期待與你見面
-        </a>
+        <p class="text-sm font-medium text-cyan-600 mt-1 tracking-widest">
+          - 請截圖保存到場須知以利提醒 -
+        </p>
+        <p class="text-primary text-sm mt-1 tracking-wider">
+          期待與你見面！如有任何問題，歡迎與我聯繫
+        </p>
       </div>
     </div>
   </main>
@@ -145,6 +198,7 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import moment from 'moment'
+import { initFlowbite } from 'flowbite'
 
 const route = useRoute()
 const defaultStr = '未顯示'
@@ -158,6 +212,8 @@ const hostName = ref(defaultStr)
 const attendeeName = ref(defaultStr)
 
 onMounted(() => {
+  initFlowbite()
+
   bookingId.value = route.query.uid || null
   title.value = route.query.title || defaultStr
   startTime.value = moment(route.query.startTime).local().format('YYYY-MM-DD HH:mm') || defaultStr
