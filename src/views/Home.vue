@@ -27,7 +27,7 @@
               </svg>
             </div>
             <h3 class="font-semibold">線上預訂</h3>
-            <p class="text-xs text-gray-400">無需與人互動，方便完成預訂</p>
+            <p class="text-xs text-gray-400">方便完成預訂</p>
           </div>
 
           <div class="text-center space-y-2">
@@ -60,7 +60,7 @@
               </svg>
             </div>
             <h3 class="font-semibold">便利位置</h3>
-            <p class="text-xs text-gray-400">鄰近捷運站，交通便利</p>
+            <p class="text-xs text-gray-400">鄰近捷運站，交通方便</p>
           </div>
 
           <div class="text-center space-y-2">
@@ -86,7 +86,7 @@
               </svg>
             </div>
             <h3 class="font-semibold">彈性時段</h3>
-            <p class="text-xs text-gray-400">多種時段選擇</p>
+            <p class="text-xs text-gray-400">方便預覽時段</p>
           </div>
         </div>
 
